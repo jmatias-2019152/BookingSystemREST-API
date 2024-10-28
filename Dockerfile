@@ -1,7 +1,27 @@
-FROM amazoncorretto:17-alpine-jdk
+# Utiliza una imagen base con Maven
+FROM maven:3.9.5 AS build
 
-COPY target/bookingSystemAPI-0.0.1-SNAPSHOT.jar app.jar
+# Establece el directorio de trabajo
+WORKDIR /app
 
-EXPOSE 5000
+# Copia el archivo pom.xml y otros archivos necesarios para la construcción
+COPY pom.xml ./
+COPY src ./src
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Construye tu aplicación con Maven
+RUN mvn clean package -DskipTests
+
+# Cambia a una imagen más ligera de OpenJDK 17 para la ejecución
+FROM openjdk:17-slim
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia el archivo JAR de tu aplicación al directorio de trabajo
+COPY --from=build  /app/target/bookingSystemAPI-0.0.1-SNAPSHOT.jar ./
+
+# Exponer el puerto que utilizará la aplicación
+EXPOSE 8081
+
+# Define el comando de inicio de la aplicación
+CMD ["java", "-jar", "bookingSystemAPI-0.0.1-SNAPSHOT.jar"]
