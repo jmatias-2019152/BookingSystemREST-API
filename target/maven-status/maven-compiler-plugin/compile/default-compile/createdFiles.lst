@@ -1,0 +1,17 @@
+org\bookingsystemrestapi\api\repository\user\UsuarioRepository.class
+org\bookingsystemrestapi\api\service\user\UsuarioService.class
+org\bookingsystemrestapi\api\security\JwtRequestFilter.class
+org\bookingsystemrestapi\api\controller\user\UsuarioController.class
+org\bookingsystemrestapi\api\controller\HealthController.class
+org\bookingsystemrestapi\api\repository\reserva\ReservaRepository.class
+org\bookingsystemrestapi\api\controller\auth\AuthController.class
+org\bookingsystemrestapi\api\controller\reserva\ReservaController.class
+org\bookingsystemrestapi\api\ApiApplication.class
+org\bookingsystemrestapi\api\service\reserva\ReservaServiceImpl.class
+org\bookingsystemrestapi\api\security\JwtTokenUtil.class
+org\bookingsystemrestapi\api\service\user\UsuarioServiceImpl.class
+org\bookingsystemrestapi\api\service\reserva\ReservaService.class
+org\bookingsystemrestapi\api\config\SecurityConfig.class
+org\bookingsystemrestapi\api\service\auth\AuthService.class
+org\bookingsystemrestapi\api\model\Usuario.class
+org\bookingsystemrestapi\api\model\Reserva.class

@@ -1,0 +1,4 @@
+org\bookingsystemrestapi\api\usuario\UsuarioServiceImplTest.class
+org\bookingsystemrestapi\api\ApiApplicationTests.class
+org\bookingsystemrestapi\api\auth\AuthServiceTest.class
+org\bookingsystemrestapi\api\reservas\ReservaServiceImplTest.class
