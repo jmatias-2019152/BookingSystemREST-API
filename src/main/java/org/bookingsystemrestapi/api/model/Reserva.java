@@ -2,68 +2,65 @@ package org.bookingsystemrestapi.api.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
 import java.util.Date;
+
 
 @Document(collection = "reservas")
 public class Reserva {
 
     @Id
-    private int id;
-    private int userId;
-    private double precio;
-    private Date reservationDate;
-    private int numeroPersonas;
+    private String id;
+    private String usuarioId;
+    private LocalDateTime fechaReserva;
+    private String ubicacion;
+    private double costo;
 
-    public Reserva() {
+    public Reserva( String usuarioId, String ubicacion, double costo) {
+        this.usuarioId = usuarioId;
+        this.fechaReserva = LocalDateTime.now();
+        this.ubicacion = ubicacion;
+        this.costo = costo;
     }
 
-    public Reserva(int id, int userId, double precio, int numeroPersonas, Date reservationDate) {
-        this.id = id;
-        this.userId = userId;
-        this.precio = precio;
-        this.numeroPersonas = numeroPersonas;
-        this.reservationDate = reservationDate;
-    }
-
-    // Getters y Setters
-
-    public Date getReservationDate() {
-        return reservationDate;
-    }
-
-    public void setReservationDate(Date reservationDate) {
-        this.reservationDate = reservationDate;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsuarioId(String usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
-    public double getPrecio() {
-        return precio;
+    public LocalDateTime getFechaReserva() {
+        return fechaReserva;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setFechaReserva(LocalDateTime fechaReserva) {
+        this.fechaReserva = fechaReserva;
     }
 
-    public int getNumeroPersonas() {
-        return numeroPersonas;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setNumeroPersonas(int numeroPersonas) {
-        this.numeroPersonas = numeroPersonas;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
 }
