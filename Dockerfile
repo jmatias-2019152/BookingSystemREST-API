@@ -18,7 +18,7 @@ FROM openjdk:17-slim
 WORKDIR /app
 
 # Copia el archivo JAR de tu aplicación al directorio de trabajo
-COPY --from=build  /app/target/bookingSystemAPI-0.0.1-SNAPSHOT.jar ./
+COPY --from=build  /app/target/bookingSystemAPI-Build.jar ./
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8081
